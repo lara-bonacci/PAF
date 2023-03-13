@@ -19,20 +19,24 @@ for N in range(20):
     x=x+v*0.5
     brzina=np.append(brzina,v)
     put=np.append(put,x)
-    print(put)
-
-
+   
 
 figure, axis = plt.subplots(3, 1, squeeze=False)
   
 axis[0,0].plot(t, put)
 axis[0,0].set_title("x-t graf")
+axis[0,0].set_ylabel("x[m]")
+axis[0,0].set_xlabel("t[s]")
   
 axis[1,0].plot(t, brzina)
 axis[1,0].set_title("v-t graf")
+axis[1,0].set_ylabel("v[m/s]")
+axis[1,0].set_xlabel("t[s]")
   
 axis[2,0].plot(t, akc)
 axis[2,0].set_title("a-t graf")
+axis[2,0].set_ylabel("a[m/s^(2)]")
+axis[2,0].set_xlabel("t[s]")
 
 plt.show()
 
