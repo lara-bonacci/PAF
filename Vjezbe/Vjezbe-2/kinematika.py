@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import math as math
 
 
 def jednoliko_gibanje(f,m,dt): 
@@ -44,8 +45,8 @@ def jednoliko_gibanje(f,m,dt):
 def kosi_hitac(v0,kut,dt):
     a_x=0
     a_y=-9.81
-    v_x=v0*np.cos(kut)
-    v_y=v0*np.sin(kut)
+    v_x=v0*np.cos(kut*math.pi/180)
+    v_y=v0*np.sin(kut*math.pi/180)
     x=0
     y=0
     t=np.arange(0,10,dt)
