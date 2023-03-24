@@ -16,7 +16,8 @@ def devijacija(podaci):
     suma=0
     for i in podaci:
         suma+=(i-aritematicka_sredina(podaci))**2
-    d=math.sqrt(suma/(len(podaci)-1))
+    d=math.sqrt(suma/(len(podaci)*(len(podaci)-1)))
+    
     return d
 
 print(aritematicka_sredina(tocke))

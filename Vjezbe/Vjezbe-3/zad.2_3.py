@@ -13,7 +13,8 @@ print(mat(2000))
 
 print(mat(20000))
 
-#razlika u broju iteracija trebala je utjecati samo na pomak tocke u desno jer se radi o deseticama
+#razlika u broju iteracija trebala je utjecati samo na pomak tocke u desno 
 #umjesto toga vidi se i razlika u zadnjim decimalama
-#kako se vise brojeva pomaknulo ispred decimalne tocke, to oslobodi mjesto u memoriji za decimale i poveca preciznost
+#kako se vise brojeva pojavilo ispred decimalne tocke, a broj u zapisu je ogranicen,
+#to ostavi manje mjesta u zapisu za decimale i smanji preciznost
 
