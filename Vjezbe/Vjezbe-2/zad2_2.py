@@ -24,8 +24,9 @@ for N in range(20):
     y=y+v_y*0.5
     x_os=np.append(x_os,x)
     y_os=np.append(y_os,y)
-    
-   
+
+print(y_os)
+print(x_os)
 
 figure, axis = plt.subplots(3, 1, squeeze=False)
   

@@ -1,6 +1,6 @@
 def pravac(točka1,točka2):
     k=(int(točka2[1])-int(točka1[1]))/(int(točka2[0])-int(točka1[0]))
-    return "{y={}*x+l".format(k)
+    return "y={}*x+l".format(k)
 
 T1=input("upišite x,y koordinate za prvu točku: ").split(",")
 T2=input("upišite x,y koordinate za drugu točku: ").split(",")
