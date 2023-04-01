@@ -58,10 +58,7 @@ class Particle:
         plt.xlabel("x[m]")
         plt.show()
 
-    def x_displacement(self,dt):
-        self.reset()
-        self.__move(dt)
-        return self.x_0
+
 
        
 
