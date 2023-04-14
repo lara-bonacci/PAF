@@ -13,13 +13,14 @@ def domet(x_0,y_0,v,phi):
     x_0=x_0+v_x*t
     return x_0
 
-dt=0.02
+dt=0.00025
 analiticki=np.array(domet(0,0,10,60))
 numericki=np.array(p1.range(dt))
-T=np.arange(0,0.02)
+T=np.array(0.00025)
 
-while dt<=0.2:
-    dt+=0.0005
+
+while dt<=0.1:
+    dt+=0.00025
     D=p1.range(dt)
     d=domet(0,0,10,60)
     analiticki=np.append(analiticki,d)
