@@ -21,9 +21,9 @@ def integration(f,min,max,n):
     d=(max-min)/n
     upper=0
     lower=0
-    for x in np.arange(min,max,d):
+    for x in np.linspace(min,max-d,n):
         lower+=f(x)*d
-    for x in np.arange(min+d,max+d,d):
+    for x in np.linspace(min+d,max,n):
         upper+=f(x)*d
 
     return upper,lower
@@ -31,9 +31,9 @@ def integration(f,min,max,n):
 def t_integration(f,min,max,n):
     d=(max-min)/n
     suma=0
-    for x in np.arange(min,max,d):
+    for x in np.arange(min+d,max,d):
         suma+=f(x)
-    integral=d*(suma+(min+max)/2)
+    integral=d*(suma+(f(min)+f(max))/2)
     return integral
 
 
