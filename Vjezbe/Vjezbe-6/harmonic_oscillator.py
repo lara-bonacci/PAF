@@ -85,15 +85,14 @@ class HarmonicOscillator:
         
 
     def time_period(self,dt):
-        P=0
         self.reset()
+        self.__move(dt)
         
         while self.x>=-self.x:
-            P+=dt
             self.__move(dt)
+            
 
-        P=2*P
-        return P
+        return self.t*4
 
 
 
