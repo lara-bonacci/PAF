@@ -8,18 +8,19 @@ class ParticleEM:
         self.b=np.array((bx,by,bz),dtype=np.float64)
         self.q=q
         self.m=m
-        self.a=(q/m)*(self.e*np.cross(self.v,self.b))
+        self.a=0.0
+        #self.a=(q/m)*(self.e+np.cross(self.v,self.b))
         self.v0=np.array((vx,vy,vz),dtype=np.float64)
         self.e0=np.array((ex,ey,ez),dtype=np.float64)
         self.b0=np.array((bx,by,bz),dtype=np.float64)
-        self.a0=(self.q/self.m)*(self.e*np.cross(self.v,self.b))
+        #self.a0=(self.q/self.m)*(self.e+np.cross(self.v,self.b))
         self.w=np.array((0.,0.,0.))
 
     def reset(self):
         self.v=self.v0
         self.e=self.e0
         self.b=self.b0
-        self.a=self.a0
+        self.a=0
         self.w=np.array((0.,0.,0.))
         
 
@@ -30,7 +31,7 @@ class ParticleEM:
         y=[]
         z=[]
 
-        while self.w[2]<=0.5:
+        while self.w[2]<=0.1:
     
             x.append(self.w[0])
             y.append(self.w[1])
@@ -51,34 +52,33 @@ class ParticleEM:
 
         return x,y,z
 
-    def euler(self,dt):
+    def euler(self,dt,steps):
         self.reset()  
 
         x=[]
         y=[]
         z=[]
 
-        while self.w[2]<=0.5:
+        for i in range(steps):
     
             x.append(self.w[0])
             y.append(self.w[1])
             z.append(self.w[2])
             
-            self.a+=(self.q/self.m)*(self.e*np.cross(self.v,self.b))
+            self.a=(self.q/self.m)*(self.e+np.cross(self.v,self.b))
             self.v+=self.a*dt
             self.w+=self.v*dt
             
             
-
         return x,y,z
         
         
-    def plot(self,dt,color="b"):
+    #def plot(self,dt,color="b"):
 
-        fig = plt.figure()
-        ax = plt.axes(projection ='3d')
-        ax.plot3D(self.euler(dt)[0], self.euler(dt)[1], self.euler(dt)[2], color,label="q={},dt={}".format(self.q,self.m,dt))
-        ax.set_title('Nabijena čestica u EM polju')
-        plt.show()
+    #    fig = plt.figure()
+    #    ax = plt.axes(projection ='3d')
+    #   ax.plot3D(self.euler(dt)[0], self.euler(dt)[1], self.euler(dt)[2], color,label="q={},dt={}".format(self.q,self.m,dt))
+    #    ax.set_title('Nabijena čestica u EM polju')
+    #    plt.show()
 
 
